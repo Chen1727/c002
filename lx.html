@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--已登录时显示-->
+        <div v-if="isLogin">
+          <h3>Welcome dingding <a href="javascript:;" @click="logout">注销</a></h3>
+        </div>
+        <!--未登录时显示-->
+        <div v-else>
+          <a href="javascript:;" @click="login">登录</a> | 
+          <a href="javascript:;">注册</a>
+        </div>
+        
+      </div>
+    <script>
+        var vm =new Vue({
+            el:"#app",
+            data:{
+                isLogin:false
+            },
+            methods: {
+                logout(){
+                    this.isLogin=false
+                },
+                login(){   
+                    this.isLogin=true
+                }
+            },
+        })
+    </script>
+</body>
+</html>
